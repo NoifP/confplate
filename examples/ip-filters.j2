@@ -1,0 +1,12 @@
+ipaddress should be a CIDR IP address or an IP address with a subnet mask (and no spaces).
+e.g. 192.168.1.5/24 or 192.168.1.5 255.255.255.0
+
+IP Address: {{ ipaddress | ip_address }}
+Network Address: {{ ipaddress | ip_network }}
+Broadcast Address: {{ ipaddress | ip_broadcast }}
+Network Mask: {{ ipaddress | ip_netmask }}
+Prefix Length: {{ ipaddress | ip_prefixlen }}
+Wildcard Mask: {{ ipaddress | ip_wildcard  }}
+Network Size: {{ ipaddress | ip_network_hosts_size }}
+First Usable IP Address: {{ ipaddress | ip_network_first }}
+Last Usable IP Address: {{ ipaddress | ip_network_last }}

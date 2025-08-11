@@ -27,6 +27,9 @@
 # THE SOFTWARE.
 #
 
+# TODO:
+# * Add option to import data from YAML - this gives some options for more complex data sets
+
 import sys
 from optparse import OptionParser
 import logging
@@ -35,9 +38,14 @@ import csv
 import string
 import re
 
-from jinja2 import Environment, FileSystemLoader, StrictUndefined, meta
+from jinja2 import Environment, FileSystemLoader, StrictUndefined, meta, Template
 
-__VERSION__ = '0.1.4'
+# load custom filters via j2ipaddr for doing netmasks etc
+from jinja2.filters import FILTERS
+from j2ipaddr import filters
+FILTERS.update(filters.load_all())
+
+__VERSION__ = '0.1.5'
 
 
 class ConfPlate(object):

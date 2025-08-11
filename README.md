@@ -11,7 +11,9 @@ Notes
 	* --force mode works with csv input
 	* added ability to filter csv data by two fields
 	* ability to use regex in filters
+	* jinja2 ip address filters ([j2ipaddr](https://pypi.org/project/j2ipaddr/))
 	* with much less elegant code (use at your own peril)!
+
 
 Design goals
 ============
@@ -170,6 +172,26 @@ Filter CSV data based on a value in one of the fields. Field must match specifie
 	 ip helper-address 192.168.100.100
 
 
+IP Address Filters
+------------------
+
+Convert network masks, CIDRs and other fun stuff thanks to [j2ipaddr](https://pypi.org/project/j2ipaddr/)
+
+	$ ./confplate-ipfilters.py ../examples/ip-filters.j2
+	ipaddress: 10.11.12.13/24
+	ipaddress should be a CIDR IP address or an IP address with a subnet mask (and no spaces).
+	e.g. 192.168.1.5/24 or 192.168.1.5 255.255.255.0
+
+	IP Address: 10.11.12.13
+	Network Address: 10.11.12.0
+	Broadcast Address: 10.11.12.255
+	Network Mask: 255.255.255.0
+	Prefix Length: 24
+	Wildcard Mask: 0.0.0.255
+	Network Size: 256
+	First Usable IP Address: 10.11.12.1
+	Last Usable IP Address: 10.11.12.254
+
 
 **Feedback, bug reports and patches are welcome.**
 
@@ -177,5 +199,5 @@ Filter CSV data based on a value in one of the fields. Field must match specifie
 Links
 -----
 
-http://jinja.pocoo.org/docs/
-
+* https://jinja.palletsprojects.com/en/stable/
+* https://github.com/baldoarturo/j2ipaddr
