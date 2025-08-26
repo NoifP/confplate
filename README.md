@@ -24,6 +24,18 @@ Design goals
 * Make it easy to create UIs on top of the main code base
 
 
+Setup (in a venv)
+=================
+
+```bash
+git clone https://github.com/NoifP/confplate.git
+cd confplate/confplate
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r ../requirements.txt
+```
+
+
 Usage Examples
 ==============
 

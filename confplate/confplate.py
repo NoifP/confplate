@@ -30,7 +30,19 @@
 # TODO:
 # * Add option to import data from YAML - this gives some options for more complex data sets
 
+
+# activate .venv without having to change shebang for different install location
 import sys
+import os
+
+python_venv = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.venv/bin/python3')
+
+if sys.executable != python_venv:
+    print(f"Launched with {sys.executable}. Relaunching {python_venv} to load .venv")
+    os.execv(python_venv, [python_venv, *sys.argv])
+
+
+
 from optparse import OptionParser
 import logging
 import os.path
